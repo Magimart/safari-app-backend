@@ -1,0 +1,21 @@
+
+
+{
+  "safariTitle" : {
+                "selectedCountries" : ["Kenya", "Rwanda", "Tanzania", "S Africa"]
+
+      },   
+  "travelDates": { 
+       "daysBetween":  { "from": "01-Nov-2016", "to": "10-Nov-2016"} 
+    }, 
+   "budgetPlan" : { "safariBudget": {
+   "perDayBudget": { "between": 10, "to": 15},
+   "allSafariBudget": { "between": 2000, "to": 2200}  
+   }
+  },    
+  "introText":  " Hi test i would love to have a trip through those mentioned places and i would be flexible with any traveller  schule adjustments if any. :) ",
+  "selectedActivities": { 
+       "selectedActivity":  ["masai mara safari", "city tours", "abedere safaris", "beach safari"] 
+    },
+    "someSpecialWish" : [ ]
+}

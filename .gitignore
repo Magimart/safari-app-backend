@@ -1,0 +1,5 @@
+node_modules
+.env
+serverB4routes.js
+canvas
+install-errors
