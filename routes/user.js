@@ -1,15 +1,12 @@
+ 
 const express = require('express');
-const User = require('../models/user');
+const userController = require('../controllers/user')
 
-exports.user = async (req, res) => {
-  const { fName } = req.body
-  try {  
+const api = express.Router();
 
-    const user = await User.findOne({fName: fName})
-      if (!user) res.status(404).send('No such user')
-       res.status(200).send(user) 
-      } catch(err) {
-        console.error(err.message)
-      }
-             
-  }
+api.get('/getAll', userController.getAll)
+api.get('/getOne', userController.getOne);
+api.post('/create', userController.create);
+api.post('/addToWishlist/:isoA3code', userController.addCountryToWishlist);
+
+ module.exports = api;   

@@ -6,10 +6,12 @@ const shortId = require('shortid');
 
 exports.signup = (req, res) => {
   
-                                        //here using the email from the request body will will check if the user email exists in the db
-                                        //we also bind the findOne func with moogoose execute(exec()) func which takes two values error and user.
+                                                                               //here using the email from the request body will will check if the user email exists in the db
+                                                                               //we also bind the findOne func with moogoose execute(exec()) func which takes two values error and user.
       
+                                                                               
      User.findOne({email: req.body.email}).exec((err, user) => {
+       
 
        if(user) {   
             return res.status(400).json({
@@ -32,13 +34,18 @@ exports.signup = (req, res) => {
                        error: err
                       });
                     }
-                    res.json({
-                      //user: success
-                      message: 'Signup success! Please sign in'
+                    const token = jwt.sign({ _id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
+                    res.cookie('token', token, { expiresIn: '1d' });   // we add cookie to the res object                       // save the token created in the cookies
+              
+                       const { _id, username, name, email, role } = newUser;
+              
+                             return res.json({
+                                     token,
+                                      user: { _id, username, name, email, role }                       //a user object that we want to send as an id
+              
                     });
-
-
+                    
                 });
           });
     

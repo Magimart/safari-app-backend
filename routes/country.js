@@ -1,17 +1,10 @@
-const express = require('express');
-const Country = require('../models/country');
-
-  exports.country = (req, res) => {
-    try {
-
-          Country.find({}, (err, results) => {
-             res.status(200).send(results)                 
-          })
-         
-          
-       } catch(err) {
-      console.error(err.message)          
-     }      
-  }
  
+const express = require('express');
+const countryController = require('../controllers/country')
 
+const api = express.Router();
+
+api.get('/getAll', countryController.getCountries)
+api.post('/create', countryController.createCountries);                                   //more validators next in line and
+
+ module.exports = api;   
