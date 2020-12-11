@@ -1,4 +1,6 @@
 //___ref__https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
+
+
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -25,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser()); 
 // app.use("/api", routes) // new
 
 
